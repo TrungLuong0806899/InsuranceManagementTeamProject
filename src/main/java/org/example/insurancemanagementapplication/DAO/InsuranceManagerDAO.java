@@ -7,20 +7,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Insu {
+public class InsuranceManagerDAO {
     private Connection connection;
     //establish JDBC connection
-    public SystemAdminDAO(Connection connection) {
+    public InsuranceManagerDAO(Connection connection) {
         this.connection = connection;
     }
 
-    public SystemAdmin authenticate(String id, String password) throws SQLException {
+    public InsuranceManager authenticate(String id, String password) throws SQLException {
         PreparedStatement statement = null; //create SQL statements with placeholders for parameters
         ResultSet resultSet = null; //get result of SQL query
-        SystemAdmin systemAdmin = null;
+        InsuranceManager insuranceManager = null;
 
         try {
-            String query = "SELECT * FROM system_admin WHERE id = ? AND password = ?"; //"?": actual values with be replaced later on
+            String query = "SELECT * FROM insurance_manager WHERE id = ? AND password = ?"; //"?": actual values with be replaced later on
             statement = connection.prepareStatement(query);
             statement.setString(1, id);
             statement.setString(2, password);
@@ -29,12 +29,15 @@ public class Insu {
             if (resultSet.next()) {
                 //If the ResultSet contains at least one row (i.e., the authentication is successful),
                 // we create a new SystemAdmin object and set its properties based on the retrieved data.
-                systemAdmin = new SystemAdmin();
-                systemAdmin.setId(resultSet.getString("id"));
-                systemAdmin.setPassword(resultSet.getString("password"));
-                systemAdmin.setAddress(resultSet.getString("address"));
-                systemAdmin.setEmail(resultSet.getString("email"));
-                systemAdmin.setFullName(resultSet.getString("full_name"));
+                insuranceManager = new InsuranceManager();
+                insuranceManager.setId(resultSet.getString("id"));
+                insuranceManager.setPassword(resultSet.getString("password"));
+                insuranceManager.setFullName(resultSet.getString("full_name"));
+                insuranceManager.setEmail(resultSet.getString("email"));
+                insuranceManager.setAddress(resultSet.getString("address"));
+                insuranceManager.setPhoneNumber(resultSet.getString("phone_number"));
+
+                //list of insurance surveyors its manages?
 
             }
         } finally {
@@ -47,7 +50,7 @@ public class Insu {
             }
         }
 //return system admin object
-        return systemAdmin;
+        return insuranceManager;
     }
 }
 //How to optimize the code:

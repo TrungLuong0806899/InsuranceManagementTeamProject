@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
  * @created 27/04/2024 04:55
  * @project InsuranceManagementTeamProject
  */
-public class SystemAdminController implements EmployeeCreateRemove, CustomerCreateRemove, Initializable, EmployeeAnalytics {
+public class SystemAdminController implements EmployeeCreateRemove, CustomerCreateRemove, Initializable, EmployeeAnalytics{
     private final EntityManager entityManager;
     private final SystemAdmin systemAdmin;
     private InsuranceSurveyor insuranceSurveyor;

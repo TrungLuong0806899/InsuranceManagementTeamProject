@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DependantDAO {
-    private Connection connection;
+    private static Connection connection;
     //establish JDBC connection
     public DependantDAO(Connection connection) {
         this.connection = connection;

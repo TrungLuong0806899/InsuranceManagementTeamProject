@@ -1,26 +1,27 @@
 package org.example.insurancemanagementapplication.DAO;
 
-import Entity.SystemAdmin;
+
+import Entity.PolicyOwner;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class SystemAdminDAO {
+public class PolicyOwnerDAO {
     private Connection connection;
-//establish JDBC connection
-    public SystemAdminDAO(Connection connection) {
+    //establish JDBC connection
+    public PolicyOwnerDAO(Connection connection) {
         this.connection = connection;
     }
 
-    public SystemAdmin authenticate(String id, String password) throws SQLException {
+    public PolicyOwner authenticate(String id, String password) throws SQLException {
         PreparedStatement statement = null; //create SQL statements with placeholders for parameters
         ResultSet resultSet = null; //get result of SQL query
-        SystemAdmin systemAdmin = null;
+        PolicyOwner policyOwner= null;
 
         try {
-            String query = "SELECT * FROM system_admin WHERE id = ? AND password = ?"; //"?": actual values with be replaced later on
+            String query = "SELECT * FROM policy_owner WHERE id = ? AND password = ?"; //"?": actual values with be replaced later on
             statement = connection.prepareStatement(query);
             statement.setString(1, id);
             statement.setString(2, password);
@@ -29,12 +30,13 @@ public class SystemAdminDAO {
             if (resultSet.next()) {
                 //If the ResultSet contains at least one row (i.e., the authentication is successful),
                 // we create a new SystemAdmin object and set its properties based on the retrieved data.
-                systemAdmin = new SystemAdmin();
-                systemAdmin.setId(resultSet.getString("id"));
-                systemAdmin.setPassword(resultSet.getString("password"));
-                systemAdmin.setAddress(resultSet.getString("address"));
-                systemAdmin.setEmail(resultSet.getString("email"));
-                systemAdmin.setFullName(resultSet.getString("full_name"));
+                policyOwner = new PolicyOwner();
+                policyOwner.setId(resultSet.getString("id"));
+                policyOwner.setPassword(resultSet.getString("password"));
+                policyOwner.setAddress(resultSet.getString("address"));
+                policyOwner.setEmail(resultSet.getString("email"));
+                policyOwner.setFullName(resultSet.getString("full_name"));
+                policyOwner.setPhoneNumber(resultSet.getString("phone_number"));
 
             }
         } finally {
@@ -47,7 +49,7 @@ public class SystemAdminDAO {
             }
         }
 //return system admin object
-        return systemAdmin;
+        return policyOwner;
     }
 }
 //How to optimize the code:
@@ -55,3 +57,4 @@ public class SystemAdminDAO {
 
 //Other DAO classes (SystemAdminDAO, PolicyHolderDAO ,...) all extend from UserDAO
 //same process, only over-write how a new object's attributes are added
+

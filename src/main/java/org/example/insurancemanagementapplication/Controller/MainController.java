@@ -20,6 +20,11 @@ import java.util.ResourceBundle;
  * @created 27/04/2024 04:50
  * @project InsuranceManagementTeamProject
  */
+
+//Controller Classes: get user input => call Input Validation and DAO inside
+    // Input Validation Class: Validate input
+    //DAO (data access object): authenticate user logins (verify if they are who they said to be). Avoid exposing database
+
 public class MainController implements Initializable {
     EntityManager entityManager;
 
@@ -66,12 +71,12 @@ public class MainController implements Initializable {
                     /**
                      * ông lấy từ database một role mà có password = password và email = email, userId = userID.
                      * Lấy từ database nào thì tuỳ thuộc vào role
-                     * Nếu query không tìm được một entry thì set Text của errorContainer thành "User Not Found"
-                     * Nếu tìm được thì tuỳ thuộc vào role mà cast. Ví dụ nếu role = "System Admin" thì tạo một variable System Admin.
-                     * Intialize cái controller của cái user type vừa tạo bằng EntityManager và cái variable vừa tạo.
-                     * Nêú là System Admin thì initialize SystemAdminController
-                     * Load dashboard FXML tương ứng
-                     * set Controller cho dashboard đó
+//                     * Nếu query không tìm được một entry thì set Text của errorContainer thành "User Not Found"
+//                     * Nếu tìm được thì tuỳ thuộc vào role mà cast. Ví dụ nếu role = "System Admin" thì tạo một variable System Admin.
+//                     * Intialize cái controller của cái user type vừa tạo bằng EntityManager và cái variable vừa tạo.
+//                     * Nêú là System Admin thì initialize SystemAdminController
+//                     * Load dashboard FXML tương ứng
+//                     * set Controller cho dashboard đó
                      * **/
 
                 }finally {

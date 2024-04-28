@@ -7,14 +7,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DependentDAO {
+public class DependantDAO {
     private Connection connection;
     //establish JDBC connection
-    public DependentDAO(Connection connection) {
+    public DependantDAO(Connection connection) {
         this.connection = connection;
     }
 
-    public Dependant authenticate(String id, String password) throws SQLException {
+    public static Dependant authenticate(String id, String password) throws SQLException {
         PreparedStatement statement = null; //create SQL statements with placeholders for parameters
         ResultSet resultSet = null; //get result of SQL query
         Dependant dependant= null;

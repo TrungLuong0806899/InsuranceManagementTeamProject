@@ -12,9 +12,11 @@ import org.example.insurancemanagementapplication.Interfaces.ClaimCreateRemove;
 import org.example.insurancemanagementapplication.Interfaces.ClaimUpdate;
 import org.example.insurancemanagementapplication.Interfaces.Controller;
 import org.example.insurancemanagementapplication.Interfaces.EmployeeAnalytics;
-import org.example.insurancemanagementapplication.Utility.RepeatedCode;
 import org.example.insurancemanagementapplication.Utility.InputValidator;
+import org.example.insurancemanagementapplication.Utility.RepeatedCode;
 
+import javax.swing.*;
+import java.io.File;
 import java.net.URL;
 import java.util.*;
 
@@ -22,6 +24,8 @@ public class CreationPageController_Claim extends CreationPageController impleme
 
     private Beneficiaries beneficiary;
     private Claim claim;
+
+    private File file;
 
 
     //create first, update later
@@ -44,6 +48,8 @@ public class CreationPageController_Claim extends CreationPageController impleme
     @FXML
     private Button returnButton;
     @FXML
+    private Label filePathLabel;
+    @FXML
     private ChoiceBox<String> statusChoiceBox;
     @FXML
     private Button updloadDocumentButton;
@@ -55,6 +61,16 @@ public class CreationPageController_Claim extends CreationPageController impleme
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setActionReturnButton();
+        updloadDocumentButton.setOnAction(event -> {
+            JFileChooser fileChooser = new JFileChooser();
+            int response = fileChooser.showOpenDialog(null);
+            if (response == fileChooser.APPROVE_OPTION){
+                file = new File(fileChooser.getSelectedFile().getAbsolutePath());
+                filePathLabel.setText(file.getAbsolutePath());
+
+            }
+
+        });
         //1st case: Update Claim
         if (claim != null) {//=> If claim exist
             //Before user click on Submit Button to Update Claim
@@ -96,6 +112,7 @@ public class CreationPageController_Claim extends CreationPageController impleme
         bankAccountNumberField.setDisable(true);
         bankNameField.setDisable(true);
         claimAmountField.setDisable(true);
+        updloadDocumentButton.setDisable(true);
         //set disable for insurance manager and insurance surveyor field
         insuranceSurveyorIdField.setDisable(true);
 
@@ -114,6 +131,7 @@ public class CreationPageController_Claim extends CreationPageController impleme
         bankAccountNumberField.setDisable(true);
         bankNameField.setDisable(true);
         claimAmountField.setDisable(true);
+        updloadDocumentButton.setDisable(true);
         //set Array String for status choice box
 
 

@@ -38,12 +38,6 @@ public class CreationPageController_Claim extends CreationPageController impleme
     @FXML
     private TextField insuranceSurveyorIdField;
     @FXML
-    private TextField insuranceManagerIdField;
-    @FXML
-    private TextField cardNumberField;
-
-
-    @FXML
     private Label errorContainer;
     @FXML
     private Button submitButton;
@@ -53,8 +47,6 @@ public class CreationPageController_Claim extends CreationPageController impleme
     private ChoiceBox<String> statusChoiceBox;
     @FXML
     private Button updloadDocumentButton;
-    @FXML
-    private Button viewDocumentButton;
 
 
 
@@ -104,10 +96,8 @@ public class CreationPageController_Claim extends CreationPageController impleme
         bankAccountNumberField.setDisable(true);
         bankNameField.setDisable(true);
         claimAmountField.setDisable(true);
-        cardNumberField.setDisable(true);
         //set disable for insurance manager and insurance surveyor field
         insuranceSurveyorIdField.setDisable(true);
-        insuranceManagerIdField.setDisable(true);
 
         //set Array String for status choice box
         String[] Status = {"NEED INF", "PROCESSING"};
@@ -123,8 +113,6 @@ public class CreationPageController_Claim extends CreationPageController impleme
         bankAccountNameField.setDisable(true);
         bankAccountNumberField.setDisable(true);
         bankNameField.setDisable(true);
-        insuranceManagerIdField.setDisable(true);
-        cardNumberField.setDisable(true);
         claimAmountField.setDisable(true);
         //set Array String for status choice box
 
@@ -215,9 +203,7 @@ public class CreationPageController_Claim extends CreationPageController impleme
         //disable necessary fields
         statusChoiceBox.setDisable(true);
         claimAmountField.setDisable(true);
-        insuranceManagerIdField.setDisable(true);
         insuranceSurveyorIdField.setDisable(true);
-        cardNumberField.setDisable(true);
         //not allowed to update insured person id
         //After use clicked on submit button
         submitButton.setOnAction(event -> {
@@ -238,9 +224,7 @@ public class CreationPageController_Claim extends CreationPageController impleme
         //disable necessary fields
         statusChoiceBox.setDisable(true);
         claimAmountField.setDisable(true);
-        insuranceManagerIdField.setDisable(true);
         insuranceSurveyorIdField.setDisable(true);
-        cardNumberField.setDisable(true);
         submitButton.setOnAction(event -> {
             //read text fields => store to variables
             String bankAccountName = bankAccountNameField.getText();

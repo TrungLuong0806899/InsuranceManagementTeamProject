@@ -5,7 +5,6 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -105,12 +104,11 @@
                             </buttons>
                         </ButtonBar>
                         <Label fx:id="errorContainer" alignment="CENTER_RIGHT" prefHeight="54.0" prefWidth="468.0" textFill="#e81111" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                        <Label alignment="CENTER" maxHeight="96.25" maxWidth="400.0" minHeight="48.125" minWidth="178.0" prefHeight="54.0" prefWidth="178.0" text="File Name" GridPane.rowIndex="6">
+                        <Label alignment="CENTER" maxHeight="96.25" maxWidth="400.0" minHeight="48.125" minWidth="178.0" prefHeight="54.0" prefWidth="178.0" text="File Path" GridPane.rowIndex="6">
                             <font>
                                 <Font name="Helvetica Neue Bold" size="16.0" />
                             </font>
                         </Label>
-                        <PasswordField fx:id="passwordValidationField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                   <TextField fx:id="bankNameField" GridPane.columnIndex="1" />
                   <ChoiceBox fx:id="statusChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label alignment="CENTER" maxHeight="96.25" maxWidth="400.0" minHeight="48.125" minWidth="179.0" prefHeight="49.0" prefWidth="179.0" text="Claim Amount" GridPane.rowIndex="5">
@@ -119,6 +117,7 @@
                      </font>
                   </Label>
                   <TextField fx:id="claimAmountField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Label fx:id="filePathLabel" prefHeight="58.0" prefWidth="516.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                     </children>
                     <GridPane.margin>
                         <Insets />
